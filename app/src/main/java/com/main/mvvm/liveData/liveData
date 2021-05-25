@@ -47,7 +47,7 @@
 
 使用说明:
    需要在build.gradle中开启
-   
+
    buildFeatures {
          dataBinding true
      }

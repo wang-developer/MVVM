@@ -6,12 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 <Button
-    android:layout_width="100dp"
+    android:layout_width="150dp"
     android:layout_height="50dp"
     android:text="liveData"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintLeft_toLeftOf="parent"
     android:onClick="startLiveData"
     />
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="lifecycle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="60dp"
+        android:onClick="startLifecycle"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

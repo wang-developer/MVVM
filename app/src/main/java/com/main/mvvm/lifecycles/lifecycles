@@ -1,0 +1,22 @@
+1. 在26版本之上,activity自动实现了lifecycle
+
+2. 自定义一个类,需要实现LifecycleObserver
+
+   LifecycleManager( lifecycleOwner: LifecycleOwner) : LifecycleObserver
+
+3. 调用LifecycleOwner的lifecycle.addObserver(this) 注册一个Observer
+
+4. 通过注解的方式让一个方法在特定的时间去运行 @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+   从而降低代码的复杂性，让结构更清晰
+
+
+5. 在application中可以注册一个 Application.ActivityLifecycleCallbacks 来获取所有activity的生命周期
+
+6. ProcessLifecycleOwner 一个用于查看进程的生命周期方法
+   onCreate只会执行一次，代表进程创建
+   onDestroy 永远不会执行,通常进程销毁
+   进入前台时触发 onStart onResume
+   进入后台时触发 onPause 此生命周期会在经过最后一个活动之后延迟调度,此延迟时间足够长，
+                        以确保在活动由于配置更改(例如旋转屏幕)而被破坏并重新创建的情况下,不会触发
+                        对于进入前台/后台时,应用程序做出一定反应，并且不需要毫秒级精度的情况下可以使用
+

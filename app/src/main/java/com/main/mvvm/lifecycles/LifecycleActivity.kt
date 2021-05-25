@@ -1,4 +1,4 @@
-package com.main.mvvm.liveData
+package com.main.mvvm.lifecycles
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -8,19 +8,17 @@ import androidx.lifecycle.lifecycleScope
 import com.main.mvvm.R
 import com.main.mvvm.databinding.ActivityLiveDataBinding
 
-class LiveDataActivity : AppCompatActivity() {
+class LifecycleActivity : AppCompatActivity() {
 
 
-    private val viewModel: LiveDataViewModel by viewModels { LiveDataVMFactory }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<ActivityLiveDataBinding>(this,R.layout.activity_live_data)
 
-        binding.lifecycleOwner = this
-//
-        binding.viewmodel = viewModel
+        setContentView(R.layout.activity_lifecycles)
 
+        LifecycleManager(this)
 
     }
 
