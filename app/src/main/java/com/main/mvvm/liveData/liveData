@@ -1,0 +1,53 @@
+1. 在布局中增加节点<layout>,在<layout>中增加子节点<data>
+   <layout>
+   		<data>
+   			<variable
+   					name = "viewmodel"
+   					type = "packName.ClassName">
+   			</variable>
+   		</data>
+   </layout>
+
+   在布局中可以使用 @{viewmodel.成员属性}
+                  @{() -> viewmodel.方法名()}
+                  @{Long.toString(viewmodel.成员属性)} //支持基本数据类型转换
+
+2. 创建对应的viewModel类
+   
+    class LiveDataViewModel : ViewModel(){}
+
+3. 在activity中绑定viewModel和对应的layout
+
+	//让对应的layout于LiveData中关联
+    val binding = DataBindingUtil.setContentView<ActivityLivedataBinding>(
+            this, R.layout.activity_livedata
+        )
+
+	binding.lifecycleOwner = this//绑定lifecycle
+    binding.viewmodel = viewmodel //绑定viewModel
+
+
+
+
+
+
+语法说明：
+   liveData{  //返回liveData相关的值
+      emit()   //值输出
+   }
+
+
+   //绑定一个factory
+   private val viewModel: LiveDataViewModel by viewModels { LiveDataVMFactory }
+
+
+   //Dispatchers 一个用于协程程序分派器实现扩展的基类，使用共享后台线程的公共池，IO 使用按需创建线程的共享池，设计用于卸载io密集型_blocking_
+   DefaultDataSource(Dispatchers.IO)
+
+
+使用说明:
+   需要在build.gradle中开启
+   
+   buildFeatures {
+         dataBinding true
+     }

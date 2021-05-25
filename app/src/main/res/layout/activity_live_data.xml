@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.android.example.livedatabuilder.LiveDataViewModel" />
+            type="com.main.mvvm.liveData.LiveDataViewModel" />
     </data>
 
     <LinearLayout
@@ -108,5 +108,6 @@
         android:layout_height="56dp"
        android:onClick="@{() -> viewmodel.onRefresh()}"
         android:text="Fetch new data" />
+    </LinearLayout>
 
 </layout>

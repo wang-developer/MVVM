@@ -10,7 +10,7 @@ class LiveDataViewModel (private val dataSource: DataSource): ViewModel() {
 
     val currentTime = dataSource.getCurrentTime()
 
-    val currentTImeTransformed = currentTime.switchMap {
+    val currentTimeTransformed = currentTime.switchMap {
         liveData { emit(timeStampToTime(it)) }
     }
 
@@ -42,7 +42,7 @@ object LiveDataVMFactory : ViewModelProvider.Factory{
     private val dataSource = DefaultDataSource(Dispatchers.IO)
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        TODO("Not yet implemented")
+        return LiveDataViewModel(dataSource) as T
     }
 
 }
