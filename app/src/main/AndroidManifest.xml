@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".liveData.LiveDataActivity"/>
         <activity android:name=".lifecycles.LifecycleActivity"/>
+        <activity android:name=".dataStore.DataStoreActivity"/>
     </application>
 
 </manifest>

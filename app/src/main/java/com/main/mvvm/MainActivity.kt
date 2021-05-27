@@ -6,10 +6,18 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.main.mvvm.dataStore.DataStoreActivity
 import com.main.mvvm.lifecycles.LifecycleActivity
 import com.main.mvvm.liveData.LiveDataActivity
 
 class MainActivity : AppCompatActivity() {
+
+    fun goTo(cls: Class<*>?){
+        startActivity(Intent(this,cls))
+    }
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,8 +31,12 @@ class MainActivity : AppCompatActivity() {
         goTo(LifecycleActivity::class.java)
     }
 
-    fun goTo(cls: Class<*>?){
-        startActivity(Intent(this,cls))
+    fun startDataStore(v: View){
+        goTo(DataStoreActivity::class.java)
     }
+
+
+
+
 
 }

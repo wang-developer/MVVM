@@ -22,5 +22,13 @@
         android:layout_marginTop="60dp"
         android:onClick="startLifecycle"
         />
-
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="dataStore"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="120dp"
+        android:onClick="startDataStore"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
