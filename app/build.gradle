@@ -1,0 +1,8 @@
+apply plugin:'com.android.application'
+apply from:'../dependencies.gradle'
+
+
+dependencies {
+
+
+}
